@@ -65,10 +65,11 @@ public class ConnectionDatabase implements Runnable {
         for (int k = 0; k < Constants.NUMBER_OF_RECORD; k++) {
             long currentProgress = Constants.NUMBER_OF_RECORD - Constants.CURRENT_ID;
             if (currentProgress == 1) {
-                System.out.println("Импортировано " + Constants.FILE_ID + " файлов" + "!");
+                System.out.println("Импортировано " + Constants.FILE_ID + " файлов" + "!"); // отслеживание, сколько файлов импортировано
                 Constants.FILE_ID++;
                 return;
             }
+            // сколько строк импортировано
             System.out.println("Импортировано в файл:" + Constants.CURRENT_ID + "; осталось " + currentProgress + " из " + Constants.NUMBER_OF_RECORD);
             try {
                 Thread.sleep(500);

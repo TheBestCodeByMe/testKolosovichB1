@@ -25,11 +25,13 @@ public class WorkWithFiles {
 
     private final SQLFactory sqlFactory = new SQLFactory();
 
+    // метод для вызова расчёта суммы и медианы
     public void sumAndMedian() throws SQLException {
         System.out.println("Сумма целых чисел равна: " + sqlFactory.getTask1().sum() +
                 ", медиана дробных чисел равна: " + sqlFactory.getTask1().median());
     }
 
+    // добавление в БД из файла
     public void insertFromFile(File file) {
         Task1 task1 = new Task1();
 
@@ -74,6 +76,7 @@ public class WorkWithFiles {
      * например, «abc» с выводом информации о количестве удаленных строк
      * */
 
+    // метод для объединения файлов и запроса на удаление определённых данных
     public void mergeDelFiles() throws IOException {
         System.out.println("Вы хотите сначала удалить определённые данные из файла? (Введите 'yes', если хотите, иначе нажмите любую клавишу)");
         Scanner scanner = new Scanner(System.in);
@@ -86,6 +89,7 @@ public class WorkWithFiles {
         mergingFiles();
     }
 
+    // объединение файлов
     private void mergingFiles() throws IOException {
         ArrayList<String> list = new ArrayList<String>();
 
@@ -118,6 +122,7 @@ public class WorkWithFiles {
         writer.close();
     }
 
+    // удаление строки в файлах
     private int delStrings(String txtForReplace) {
         ArrayList<String> list = new ArrayList<String>();
         int count = 0;

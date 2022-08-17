@@ -20,6 +20,7 @@ public class SQLTask1 implements ITask1 {
         return instance;
     }
 
+    // добавление в БД
     @Override
     public void insert(Task1 object) throws SQLException {
         String query = "INSERT INTO task1(date, latinChars, russianChars, intNumber, floatNumber) VALUES('" +
@@ -31,12 +32,14 @@ public class SQLTask1 implements ITask1 {
         dbConnectionDatabase.execute(query);
     }
 
+    // расчёт суммы
     @Override
     public String sum() throws SQLException {
         String query = "SELECT sum(intNumber) as sumNumbers from task1";
         return dbConnectionDatabase.getStringResult(query, "sumNumbers");
     }
 
+    // расчёт медианы
     @Override
     public String median() throws SQLException {
         String query = "SELECT AVG(t2.floatNumber/2) as median" +

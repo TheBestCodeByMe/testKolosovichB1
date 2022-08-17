@@ -20,6 +20,7 @@ public class FileGeneration {
     || случайное положительное число с 8 знаками после запятой в диапазоне от 1 до 20
     */
 
+    // метод генерации файлов
     public void generateFiles() throws IOException {
         File f = new File(Constants.FILE_PATH);
 
@@ -37,6 +38,7 @@ public class FileGeneration {
         }
     }
 
+    // генерация даты
     private String genDate() {
         long randomMillisSinceEpoch = ThreadLocalRandom
                 .current()
@@ -46,6 +48,7 @@ public class FileGeneration {
         return formatter.format(new Date(randomMillisSinceEpoch));
     }
 
+    // генерация символов (латинских/русских)
     private String genSymbol(int leftLimit, int rightLimit, int leftException, int rightException) {
         Random random = new Random();
         return random.ints(leftLimit, rightLimit + 1)
@@ -55,6 +58,7 @@ public class FileGeneration {
                 .toString();
     }
 
+    // генерация положительного целого числа
     private int genPositiveEvenInt() {
         int random = ThreadLocalRandom.current().nextInt(Constants.LEFT_BORDER_FOR_INT, Constants.RIGHT_BORDER_FOR_INT + 1);
         if (random % 2 != 0) {
@@ -63,10 +67,12 @@ public class FileGeneration {
         return random;
     }
 
+    // генерация дробного числа с 8 знаками после запятой
     private String genPositiveDouble() {
         return (String.format("%." + Constants.NUMBER_FOR_DECIMAL_PLACES + "f", (Math.random() * (Constants.RIGHT_BORDER_FOR_DOUBLE - Constants.LEFT_BORDER_FOR_DOUBLE)) + Constants.LEFT_BORDER_FOR_DOUBLE));
     }
 
+    // генерация текста для файлов в необходимом порядке и виде
     public String genTextForFiles() {
         return genDate() + "||" + genSymbol(65, 122, 91, 96) +
                 "||" + genSymbol(1040, 1103, 0, 0) + "||"
