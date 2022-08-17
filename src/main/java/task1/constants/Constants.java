@@ -21,7 +21,7 @@ public class Constants {
     public static final int NUMBER_FOR_DECIMAL_PLACES = 8;
     public static final int NUMBER_OF_FILES = 100;
     public static final int NUMBER_OF_RECORD = 100;
-    public static int CURRENT_ID;
+    public static int CURRENT_ID = 1;
     public static int FILE_ID;
 
     // path

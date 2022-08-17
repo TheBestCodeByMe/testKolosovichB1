@@ -13,10 +13,17 @@ import java.text.ParseException;
 public class Main {
     public static void main(String[] args) throws ParseException, IOException, SQLException {
         FileGeneration fileGeneration = new FileGeneration();
-        fileGeneration.generateFiles();
         WorkWithFiles workWithFiles = new WorkWithFiles();
+
+        // Если раскомментить, то будут генериться файлы
+        // fileGeneration.generateFiles();
+        
+        // Если раскомментить, то будет возможен выбор удаления данных из файла, а также все файлы соединяться в 1
         //workWithFiles.mergeDelFiles();
-/*
+        
+        // Если раскомментить, то будут импортироваться файлы в СУБД с выводом прогресса
+
+        /*
         File folder = new File(Constants.FILE_PATH);
         File[] listOfFiles = folder.listFiles();
         for (File file : listOfFiles) {
@@ -24,8 +31,9 @@ public class Main {
                 ConnectionDatabase.getProgress();
                 workWithFiles.insertFromFile(file);
             }
-        }*/
+        }
+*/
 
-        workWithFiles.sumAndMedian();
+        workWithFiles.sumAndMedian(); // вызов для расчёта метода медианы
     }
 }
